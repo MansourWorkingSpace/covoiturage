@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg" style="margin: 0px">
+  <div style="" class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/bg_image">
+      <img width="60" class="rounded-circle" src="assets/logo.png" alt="Logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="grandirheader()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/bg_image">
+            Accueil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Rechercher Annonces</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">Publier Annonces</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <a routerLink="/connexion" class="btn-connexion me-2"> Connexion </a>
+        <a routerLink="/inscription" class="btn-inscription">Inscription</a>
+      </div>
+    </div>
+  </div>
+</nav>

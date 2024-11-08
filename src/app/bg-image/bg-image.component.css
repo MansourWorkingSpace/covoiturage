@@ -1,0 +1,22 @@
+div{
+    background-repeat: no-repeat ;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url('/assets/bg_image.avif');
+    width: 100%;
+    height: calc(100vh - 76px);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+p{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color:antiquewhite;
+    font-size: 35px;
+    margin: 0px;
+}
+    
