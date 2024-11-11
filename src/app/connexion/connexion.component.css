@@ -1,122 +1,101 @@
-*,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Container for centering the form and applying the background */
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-body{
-    background-color: #080710;
-}
-.background{
-    width: 430px;
-    height: 520px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-        #1845ad,
-        #23a2f6
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
-    right: -30px;
-    bottom: -80px;
-}
-form{
-    height: 520px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
+form, input, label, h4, h3 {
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Replace with your desired font */
+    font-size: 16px; /* Ensure consistent font size */
+    color: #10375C; /* Unified font color */
+    font-weight: 300; /* Match the weight used in 'inscri' */
 }
 
-label{
+/* Main form styling for 'inscri' component */
+form {
+    height: 450px; /* Match height with connexion form */
+    width: 400px; /* Match width with connexion form */
+    background-color:#F4F6FF;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Font color styling */
+form * {
+    color: #10375C;
+}
+
+/* Heading for the form */
+form h4, form h3 {
+    font-size: 32px;
+    font-weight: 500; /* Align with 'inscri' */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+
+/* Inputs styling */
+input {
     display: block;
-    height: 50px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
+    height: 50px; /* Height alignment */
     padding: 0 10px;
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 16px; /* Consistent with 'inscri' style */
     font-weight: 300;
-}
-::placeholder{
-    color: #e5e5e5;
-}
-button{
-    margin-top: 50px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #10375C;
     border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Password input field */
+input[type="password"] {
+    margin-bottom: 20px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #10375C;
+    color: #F4F6FF;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 50px;
 }
-.social{
-  margin-top: 30px;
-  display: flex;
+
+/* Hover effects */
+input[type="submit"]:hover {
+    background-color: #F4F6FF;
+    color: #10375C;
+    border: solid #F3C623 1px;
 }
-.social div{
-  background: red;
-  width: 150px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
+
+/* Focus effects for inputs */
+input:focus {
+    outline: none;
+    border-color: #F3C623;
+    box-shadow: 0 0 5px rgba(243, 198, 35, 0.4);
 }
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
+
+/* Styling the placeholder text to match 'inscri' font style */
+input::placeholder { 
+    font-size: 16px;
+    font-weight: 500;
 }
