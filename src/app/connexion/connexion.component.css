@@ -77,7 +77,7 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 /* Hover effects */
@@ -98,4 +98,18 @@ input:focus {
 input::placeholder { 
     font-size: 16px;
     font-weight: 500;
+}
+.forgot-password {
+    font-size: 14px;
+    color: #10375C;
+    margin-top: 20px;
+    text-decoration: none; /* Remove underline */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the link */
+.forgot-password:hover {
+    color: #F3C623; /* Change color on hover */
+    text-decoration: underline; /* Underline on hover */
 }
