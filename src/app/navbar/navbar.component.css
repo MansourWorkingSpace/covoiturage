@@ -30,7 +30,10 @@ li {
   color: white;
   margin-right: 100px;
 }
-img{
+a img{
   margin-left:100px;
-
 }
+div > img{
+  margin-right: 100px;
+}
+

@@ -1,13 +1,13 @@
 <div class="custom-login">
-  <form>
+  <form [formGroup]="profileForm" (ngSubmit)="OnSubmit()">
     <h4>Se connecter</h4>
 
-    <label for="username">Nom d'utilisateur:</label>
-    <input type="text" placeholder="Email ou Nom d'utilisateur" id="username">
+    <label for="username">Email:</label>
+    <input type="text" placeholder="Email" formControlName="email">
 
     <label for="password">Mot de passe:</label>
-    <input type="password" placeholder="Mot de Passe" id="Mot de passe">
-    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
-    <input type="submit" value="Se connecter">
+    <input type="password" placeholder="Mot de Passe" formControlName="password">
+    
+    <input type="submit" value="Se connecter" [disabled]="!profileForm.valid">
   </form>
 </div>

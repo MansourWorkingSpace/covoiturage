@@ -1,14 +1,17 @@
-<div [ngStyle]="">
-    <form action="" method="post">
+<div >
+    <form action="" method="post" [formGroup]="profileForm">
         <h3>Créer un compte:</h3>
-        <input type="text" name="username" placeholder="Nom d'utilisateur" id=""> 
-        <input type="text" name="name" id="" placeholder="Nom">
-        <input type="text" name="telephone" id="" placeholder="Téléphone">
-        <input type="text" name="email" id="" placeholder="Email">
-        <input type="text" name="adress" id="" placeholder="Adresse">
-        <input type="date" name="date" id="">
-        <input style="background-color: white;" type="file">
-        <input type="password" placeholder="Mot de passe">
-        <input type="submit" value="Créer un compte">
+        <div class="first">
+            <input type="text" formControlName="username" placeholder="Nom d'utilisateur" id=""> 
+            <input type="text" formControlName="name" id="" placeholder="Nom">
+            <input type="text" formControlName="telephone" id="" placeholder="Téléphone">
+            <input type="text" formControlName="email" id="" placeholder="Email">
+            <input type="text" formControlName="adress" id="" placeholder="Adresse">
+            <input type="date" formControlName="date" id="" >
+        </div>
+        <div class="second">
+            <input type="password" placeholder="Mot de passe" formControlName="password">
+        </div>
+        <input type="submit" value="Créer un compte" (click)="OnSubmit()" [disabled]="!profileForm.valid" routerLink="/profil" >
     </form>    
 </div>
