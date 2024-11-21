@@ -84,7 +84,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #F4F6FF;
     color: #10375C;
-    border: solid #F3C623 1px;
+    border: solid #EB8317 1px;
 }
 
 /* Focus effects for inputs */

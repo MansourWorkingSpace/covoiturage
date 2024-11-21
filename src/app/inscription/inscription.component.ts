@@ -19,7 +19,7 @@ export class InscriptionComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     adress: new FormControl('', Validators.required),
-    date: new FormControl('', Validators.required),
+    age: new FormControl('', Validators.required),
   });
 
   constructor(public sharedService: SharedService, private router: Router) {}
@@ -33,13 +33,12 @@ export class InscriptionComponent {
         telephone: this.profileForm.value.telephone,
         email: this.profileForm.value.email,
         password: this.profileForm.value.password,
-        address: this.profileForm.value.adress,
-        date: this.profileForm.value.date,
+        adress: this.profileForm.value.adress,
+        age: this.profileForm.value.age,
       });
       SharedService.current_user_id=SharedService.nb_users;
       SharedService.nb_users++;
       SharedService.connected = true;
-      
       this.router.navigate(['/profil']);
     }
   }

@@ -35,5 +35,18 @@ a img{
 }
 div > img{
   margin-right: 100px;
+  margin-left: 10px;
+}
+/* Change background color on hover */
+.dropdown-item {
+  background-color: #10375c; /* Default background */
+  color: #F4F6FF;
+  width: 120px; /* Optional: Change text color */
+}
+
+/* Optional: Reset the color when not hovered */
+.dropdown-item:hover {
+  background-color: #F4F6FF; /* Desired hover color */
+  color: #10375c; /* Default text color */
 }
 

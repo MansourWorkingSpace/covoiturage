@@ -29,23 +29,27 @@
           <button class="nav-link active" routerLink="/publier" [disabled]="!status">Publier Annonces</button>
         </li>
       </ul>
+
       @if(!status){
         <div class="d-flex align-items-center">
           <a routerLink="/connexion" class="btn-connexion me-2"> Connexion </a>
           <a routerLink="/inscription" class="btn-inscription">Inscription</a>
         </div>
       }@else {
-        
-        <div class="dropdown" style="margin-right:10px ;">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" routerLink="/profil">Profil de {{ username }}</a></li>
-            <li><a class="dropdown-item" (click)="deconnecter()" routerLink="/bg_image">deconnecter</a></li>
-          </ul>
+          <div class="dropdown">
+            <button  
+            class="btn btn-secondary dropdown-toggle" 
+            style="background-color: #10375c;" 
+            type="button" id="dropdownMenuButton" 
+            data-bs-toggle="dropdown" 
+            aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#10375c;width: 120px;">
+              <li><a class="dropdown-item" routerLink="/profil">Profil de {{ username }}</a></li>
+              <li><a class="dropdown-item" (click)="deconnecter()" routerLink="/bg_image">deconnecter</a></li>
+            </ul>
+          <img src="/assets/profil.png" width="60px" alt="">
         </div>
-        <img src="/assets/profil.png" width="60px" alt="">
       }
     </div>
   </div>

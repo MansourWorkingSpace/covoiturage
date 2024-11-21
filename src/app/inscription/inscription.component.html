@@ -7,11 +7,11 @@
             <input type="text" formControlName="telephone" id="" placeholder="Téléphone">
             <input type="text" formControlName="email" id="" placeholder="Email">
             <input type="text" formControlName="adress" id="" placeholder="Adresse">
-            <input type="date" formControlName="date" id="" >
+            <input type="number" formControlName="age" id=""  placeholder="Age">
         </div>
         <div class="second">
             <input type="password" placeholder="Mot de passe" formControlName="password">
         </div>
-        <input type="submit" value="Créer un compte" (click)="OnSubmit()" [disabled]="!profileForm.valid" routerLink="/profil" >
+        <input type="submit" value="Créer un compte" (click)="OnSubmit()" [disabled]="!profileForm.valid">
     </form>    
 </div>

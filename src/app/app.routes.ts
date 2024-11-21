@@ -5,6 +5,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { RechercherAnnonceComponent } from './rechercher-annonce/rechercher-annonce.component';
 import { PublierAnnonceComponent } from './publier-annonce/publier-annonce.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 
 export const routes: Routes = [
     {path : 'bg_image' , component : BgImageComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path : 'connexion' , component : ConnexionComponent},
     {path : 'rechercher' , component : RechercherAnnonceComponent},
     {path : 'publier' , component : PublierAnnonceComponent},
-    {path : 'profil' , component : ProfilComponent}
+    {path : 'profil' , component : ProfilComponent},
+    {path: 'modifier_profil',component:ModifierProfilComponent}
 ];
