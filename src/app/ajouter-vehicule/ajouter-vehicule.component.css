@@ -1,0 +1,73 @@
+/* Form Container */
+.form-container {
+  margin: 50px auto;
+  width: 100%;
+  max-width: 500px;
+  background-color: #f4f6ff; /* Soft light background */
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Form shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Subtle shadow */
+}
+
+/* Heading */
+.form-container h3 {
+  margin-bottom: 20px;
+  color: #10375c; /* Dark blue for heading */
+  text-align: center;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #10375c;
+  margin-bottom: 5px;
+}
+
+/* Input and Select Styling */
+input,
+select {
+  padding: 10px;
+  border: 1px solid #10375c;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #fff; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #f3c623; /* Yellow highlight */
+  box-shadow: 0 0 5px rgba(243, 198, 35, 0.5);
+}
+
+/* Submit Button */
+.btn-primary {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #10375c; /* Dark blue */
+  color: #f4f6ff; /* Light text */
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #f4f6ff; /* Orange */
+  color: #10375c;
+  border: solid #eb8317 1px;
+}

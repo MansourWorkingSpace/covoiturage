@@ -2,7 +2,9 @@ li {
   margin-right: 50px;
   margin-left: 30px;
 }
-
+a img{
+  margin-left: 120px;
+}
 .btn-connexion,
 .btn-inscription {
   text-decoration: none;
@@ -28,15 +30,9 @@ li {
 .btn-inscription {
   background-color: #10375c;
   color: white;
-  margin-right: 100px;
+  margin-right: 120px;
 }
-a img{
-  margin-left:100px;
-}
-div > img{
-  margin-right: 100px;
-  margin-left: 10px;
-}
+
 /* Change background color on hover */
 .dropdown-item {
   background-color: #10375c; /* Default background */
@@ -50,3 +46,6 @@ div > img{
   color: #10375c; /* Default text color */
 }
 
+.btn-secondary.dropdown-toggle::after {
+  border-top-color: black !important; /* Makes the triangle black */
+}

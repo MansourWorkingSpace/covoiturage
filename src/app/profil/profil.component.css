@@ -1,94 +1,94 @@
 /* Parent container */
 div.parent {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-    justify-content: center; /* Center the content */
-    gap: 40px; /* Add space between the divs */
-    align-items: flex-start; /* Align child divs at the top */
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  justify-content: center; /* Center the content */
+  gap: 40px; /* Add space between the divs */
+  align-items: flex-start; /* Align child divs at the top */
 }
 
 /* General styling for child divs */
 div.first_child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #F4F6FF; /* Soft background */
-    border: 2px solid #10375C; /* Dark blue border */
-    box-shadow: 0 4px 10px rgba(16, 55, 92, 0.1); /* Subtle shadow */
-    border-radius: 15px; /* Rounded corners */
-    width: 350px;
-    min-height: 450px; /* Ensure a larger height for the first div */
-    padding: 25px;
-    gap: 20px; /* Space between items inside */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f4f6ff; /* Soft background */
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Rounded corners */
+  width: 350px;
+  min-height: 450px; /* Ensure a larger height for the first div */
+  padding: 25px;
+  gap: 20px; /* Space between items inside */
 }
 
 /* Second child specific adjustments */
 div.second_child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    background-color: #F4F6FF; /* Soft background */
-    border: 2px solid #10375C; /* Dark blue border */
-    box-shadow: 0 4px 10px rgba(16, 55, 92, 0.1); /* Subtle shadow */
-    border-radius: 15px; /* Rounded corners */
-    width: 350px; /* Shrink to fit content width */
-    height: fit-content; /* Shrink to fit content height */
-    padding: 15px; /* Minimal padding */
-    gap: 10px; /* Reduce spacing between links */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  background-color: #f4f6ff; /* Soft background */
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 0 10px rgba(8, 7, 16, 0.6); /* Rounded corners */
+  width: 350px; /* Shrink to fit content width */
+  height: fit-content; /* Shrink to fit content height */
+  padding: 15px; /* Minimal padding */
+  gap: 10px; /* Reduce spacing between links */
 }
 
 /* Link styling */
 a {
-    color: #F3C623; /* Vibrant yellow for links */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 8px 12px; /* Add padding for clickable area */
-    transition: all 0.3s ease;
+  color: #f3c623; /* Vibrant yellow for links */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 8px 12px; /* Add padding for clickable area */
+  transition: all 0.3s ease;
 }
 
 a:hover {
-    color: #EB8317; /* Orange text on hover */
+  color: #eb8317; /* Orange text on hover */
 }
 
 /* Button styling */
 button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #10375C; /* Dark blue for button */
-    color: #F4F6FF; /* Light text */
-    border: none;
-    border-radius: 8px;
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #10375c; /* Dark blue for button */
+  color: #f4f6ff; /* Light text */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #F4F6FF;
-    color: #10375C;
-    border: solid #EB8317 1px; /* Orange on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+  background-color: #f4f6ff;
+  color: #10375c;
+  border: solid #eb8317 1px; /* Orange on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 button img {
-    margin-right: 10px;
-    width: 20px;
+  margin-right: 10px;
+  width: 20px;
 }
 
 /* Add hover effects for child divs */
 div div:hover {
-    box-shadow: 0 6px 15px rgba(16, 55, 92, 0.2); /* Highlighted shadow */
-    transform: translateY(-5px); /* Subtle lift */
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 15px rgba(16, 55, 92, 0.2); /* Highlighted shadow */
+  transform: translateY(-5px); /* Subtle lift */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-p{
-    width: 320px;
-    text-align: left;
+p {
+  width: 320px;
+  text-align: left;
 }

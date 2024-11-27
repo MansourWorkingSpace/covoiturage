@@ -22,7 +22,7 @@ export class InscriptionComponent {
     age: new FormControl('', Validators.required),
   });
 
-  constructor(public sharedService: SharedService, private router: Router) {}
+  constructor( private router: Router) {}
 
   OnSubmit() {
     if (this.profileForm.valid) {

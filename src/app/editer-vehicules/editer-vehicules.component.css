@@ -1,0 +1,85 @@
+/* Page Container */
+.page-container {
+  max-width: 1100px; 
+  padding: 20px;
+  background-color: #f4f6ff; /* Soft light background */
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 0 10px rgba(8, 7, 16, 0.6);
+  
+  margin: auto;
+  margin-top: 20px; 
+}
+
+/* Table Styles */
+table {
+  width: 1060px;
+  border-collapse: collapse;
+  background-color: #ffffff; /* White background */
+  border: 2px solid #10375c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Table Header */
+thead th {
+  background-color: #10375c; /* Dark blue */
+  color: #f4f6ff; /* Light text */
+  text-align: left;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Table Rows */
+tr:nth-child(even) {
+  background-color: #f4f6ff; /* Light background for alternate rows */
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff; /* White background for odd rows */
+}
+
+/* Table Cells */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #10375c; /* Subtle borders */
+  color: #10375c; /* Dark blue text */
+  text-align: left;
+}
+
+/* Buttons */
+button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Delete Button */
+button:hover {
+  background-color: #eb8317; /* Orange on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+button:active {
+  background-color: #f3c623; /* Yellow on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.8rem;
+  }
+
+  td,
+  th {
+    padding: 8px;
+  }
+
+  button {
+    font-size: 0.8rem;
+  }
+}

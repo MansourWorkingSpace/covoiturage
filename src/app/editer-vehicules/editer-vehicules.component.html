@@ -1,0 +1,25 @@
+<div class="page-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Marque</th>
+          <th>Immatriculation</th>
+          <th>Couleur</th>
+          <th>Places</th>
+          <th>Type</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let voiture of voitures; let i = index">
+          <td>{{ voiture.marque }}</td>
+          <td>{{ voiture.immatriculation }}</td>
+          <td>{{ voiture.couleur }}</td>
+          <td>{{ voiture.places }}</td>
+          <td>{{ voiture.type }}</td>
+          <td><button (click)="delete(i)">🗑 Supprimer</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
