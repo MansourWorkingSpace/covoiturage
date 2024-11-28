@@ -51,9 +51,8 @@ input:focus {
 
 
 input[type="submit"]:hover {
-    background-color: #F4F6FF;
-    color: #10375C;
-    border: solid #EB8317 1px;
+    background-color: #EB8317;
+    color: #F4F6FF;
     font-size: 16px;
 }
 div .first{

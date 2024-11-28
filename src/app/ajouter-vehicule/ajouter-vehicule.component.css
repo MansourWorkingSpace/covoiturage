@@ -67,7 +67,7 @@ select:focus {
 }
 
 .btn-primary:hover {
-  background-color: #f4f6ff; /* Orange */
-  color: #10375c;
+  background-color: #EB8317;
+    color: #F4F6FF;
   border: solid #eb8317 1px;
 }

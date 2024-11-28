@@ -71,9 +71,8 @@ button {
 }
 
 button:hover {
-  background-color: #f4f6ff;
-  color: #10375c;
-  border: solid #eb8317 1px; /* Orange on hover */
+  background-color: #EB8317;
+    color: #F4F6FF;
   transform: scale(1.05); /* Slight zoom effect */
 }
 

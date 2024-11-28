@@ -56,6 +56,8 @@ button {
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  background-color: #10375c;
+  color:#f4f6ff;
 }
 
 /* Delete Button */
