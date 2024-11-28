@@ -24,7 +24,6 @@ export class AjouterVehiculeComponent {
       SharedService.users[SharedService.current_user_id].voitures = [];
     }
     if (this.carForm.valid) {
-      console.log(this.carForm.value);
       SharedService.users[SharedService.current_user_id].voitures.push(this.carForm.value);
       this.router.navigate(['/profil']);
     }
