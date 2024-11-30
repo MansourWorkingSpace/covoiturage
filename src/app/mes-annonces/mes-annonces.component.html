@@ -10,7 +10,7 @@
           <tbody>
               
                 <tr *ngFor="let annonce of annonces">
-                  <td>
+                  <td *ngIf="isFutureDate(annonce.dateDepart)">
                     <div class="annonce-card">
                       <!-- Profile Section -->
                       <div class="profile-section">
@@ -32,9 +32,12 @@
                           <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
                           <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
                         </p>
-                        <p><b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
-                        <p *ngIf="annonce.allerRetour"><b>Aller-Retour</b></p>
-                        <p *ngIf="annonce.animauxAutorises"><b>Animaux Autorisés</b></p>
+                        <p *ngIf="annonce.vehicule.places - 1>0 ; else Complet"><b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
+                        <ng-template #Complet><p><b>Complet</b></p></ng-template>
+                        <p *ngIf="annonce.allerRetour; else aller"><b>Aller-Retour</b></p>
+                        <ng-template #aller><p><b>Aller uniquement</b></p></ng-template>
+                        <p *ngIf="annonce.animauxAutorises; else nonAutorises"><b>Animaux Autorisés</b></p>
+                        <ng-template #nonAutorises><p><b>Animaux non Autorisés</b></p></ng-template>
                       </div>
                       <!-- Price Section -->
                       <div class="price-section">

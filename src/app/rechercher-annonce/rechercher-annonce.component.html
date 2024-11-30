@@ -9,7 +9,7 @@
       <ng-container *ngFor="let user of users">
         <ng-container *ngIf="user.annonces?.length > 0 && user!==users[current_user]">
           <tr *ngFor="let annonce of user.annonces">
-            <ng-container *ngIf="annonce.vehicule.places - 1 > 0">
+            <ng-container *ngIf="annonce.vehicule.places - 1 > 0 && isFutureDate(annonce.dateDepart) ">
               <td>
                 <div class="annonce-card">
                   <!-- Profile Section -->

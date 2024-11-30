@@ -13,6 +13,9 @@ export class MesAnnoncesComponent {
   annonces = SharedService.users[SharedService.current_user_id].annonces;
   user = SharedService.users[SharedService.current_user_id];
   users = SharedService.users;
+  isFutureDate(dateDepart: string): boolean {
+    return new Date(dateDepart) > new Date();
+  }
   affiche=false;
   afficher(){
     this.affiche=true;

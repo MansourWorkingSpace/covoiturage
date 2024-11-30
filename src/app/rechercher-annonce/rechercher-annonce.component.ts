@@ -12,6 +12,9 @@ import { SharedService } from '../shared.service';
 export class RechercherAnnonceComponent {
   users = SharedService.users;
   current_user=SharedService.current_user_id;
+  isFutureDate(dateDepart: string): boolean {
+    return new Date(dateDepart) > new Date();
+  }
   devenirParticipant(annonce: any) {
     annonce.indexParticipants.push(SharedService.current_user_id);
     annonce.vehicule.places -= 1;
