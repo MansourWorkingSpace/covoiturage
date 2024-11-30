@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-editer-vehicules',
@@ -10,7 +9,6 @@ import { SharedService } from '../shared.service';
   styleUrl: './editer-vehicules.component.css',
 })
 export class EditerVehiculesComponent {
-  constructor(private router: Router) {}
   voitures:any = SharedService.users[SharedService.current_user_id].voitures;
   delete(i: number) {
     SharedService.users[SharedService.current_user_id].voitures.splice(i, 1);

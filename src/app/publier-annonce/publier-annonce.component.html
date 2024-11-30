@@ -1,40 +1,52 @@
 <div class="form-container">
   <h3>Ajouter Annonce :</h3>
-  <form>
+  <form method="post" [formGroup]="annonceForm">
     <div class="form-group">
       <label>Description:</label>
-      <input type="text" placeholder="Entrez la description" />
+      <input
+        formControlName="description"
+        type="text"
+        placeholder="Entrez la description"
+      />
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>Date De Départ:</label>
-        <input type="date" />
+        <input formControlName="dateDepart" type="date" />
       </div>
       <div class="form-group">
         <label>Heure De Départ:</label>
-        <input type="time" />
+        <input formControlName="heureDepart" type="time" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
         <label>Date D'Arrivée:</label>
-        <input type="date" />
+        <input formControlName="dateArrivee" type="date" />
       </div>
       <div class="form-group">
         <label>Heure D'Arrivée:</label>
-        <input type="time" />
+        <input formControlName="heureArrivee" type="time" />
       </div>
     </div>
 
     <div class="form-group">
       <label>Lieu De Départ:</label>
-      <input type="text" placeholder="Entrez le lieu de départ" />
+      <input
+        formControlName="lieuDepart"
+        type="text"
+        placeholder="Entrez le lieu de départ"
+      />
     </div>
     <div class="form-group">
       <label>Lieu D'Arrivée:</label>
-      <input type="text" placeholder="Entrez le lieu d'arrivée" />
+      <input
+        formControlName="lieuArrivee"
+        type="text"
+        placeholder="Entrez le lieu d'arrivée"
+      />
     </div>
     @if(voitures.length>0){
     <div class="form-grup">
@@ -57,13 +69,15 @@
     <div class="form-row">
       <div class="form-group">
         <label>Prix Par Place:</label>
-        <input type="number" placeholder="Entrez le prix" />
+        <input formControlName="prixParPlace" type="number" placeholder="Entrez le prix" />
       </div>
     </div>
 
     <div class="form-group-inline">
-      <label> <input type="checkbox" /> Aller-Retour </label>
-      <label> <input type="checkbox" /> Animaux De Compagnie Autorisés </label>
+      <label> <input formControlName="allerRetour" type="checkbox" /> Aller-Retour </label>
+      <label>
+        <input formControlName="animauxAutorises" type="checkbox" /> Animaux De Compagnie Autorisés
+      </label>
     </div>
     <button type="submit" class="btn-primary" (click)="OnSubmit()">
       Créer L'Annonce

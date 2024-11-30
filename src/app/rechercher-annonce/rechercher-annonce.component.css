@@ -1,0 +1,112 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6ff; /* Bleu clair */
+  padding: 20px;
+  min-height: 100vh; /* S'étend sur toute la hauteur de la page */
+}
+
+table {
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 20px; /* Espacement entre les lignes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+thead th {
+  text-align: center;
+  font-size: 28px; /* Titre plus grand */
+  font-weight: bold;
+  color: #10375c; /* Bleu foncé */
+  padding-bottom: 20px;
+}
+
+
+.annonce-card {
+  border-radius: 15px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* Fond blanc */
+  padding: 20px;
+  gap: 20px; /* Espace entre les sections */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 50%;
+}
+
+.annonce-card:hover {
+  transform: scale(1.02); /* Effet de zoom au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.profil-section {
+  text-align: center;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #10375c; /* Bleu foncé */
+}
+
+.details-section {
+  flex: 2;
+  text-align: left;
+  color: #10375c; /* Bleu foncé */
+}
+
+.details-section h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details-section p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espace entre prix et bouton */
+  color: white;
+  font-size: 24px; /* Texte plus grand */
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+.participer-btn {
+  background-color: #10375c; /* Bleu foncé */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.participer-btn:hover {
+  background-color: #eb8317; /* Orange */
+  color: #10375c; /* Texte bleu */
+}

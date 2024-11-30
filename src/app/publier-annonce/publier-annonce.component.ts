@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router,RouterLink } from '@angular/router';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-publier-annonce',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './publier-annonce.component.html',
   styleUrl: './publier-annonce.component.css',
 })
@@ -31,9 +31,19 @@ export class PublierAnnonceComponent {
   selectedVehicle:any;
 
   onVehicleChange(event: Event) {
-    const vehicleIndex = (event.target as HTMLSelectElement).value;
-    this.selectedVehicle = this.voitures[vehicleIndex];
+    console.log('Event Target Value:', (event.target as HTMLSelectElement).value);
+    const vehicleIndex = parseInt((event.target as HTMLSelectElement).value, 10);
+    console.log('Parsed Vehicle Index:', vehicleIndex);
+  
+    if (!isNaN(vehicleIndex) && vehicleIndex >= 0 && vehicleIndex < this.voitures.length) {
+      this.selectedVehicle = this.voitures[vehicleIndex];
+      console.log('Selected Vehicle:', this.selectedVehicle);
+    } else {
+      console.error('Invalid vehicle index');
+      this.selectedVehicle = null;
+    }
   }
+  
   constructor(private router: Router) {}
   OnSubmit() {
     if (!Array.isArray(SharedService.users[SharedService.current_user_id].annonces)) {
@@ -44,12 +54,13 @@ export class PublierAnnonceComponent {
       console.error('No vehicle selected!');
       return;
     }
-  
+    
     if (this.annonceForm.valid) {
       this.annonceForm.patchValue({ vehicule: this.selectedVehicle });
       SharedService.users[SharedService.current_user_id].annonces.push(this.annonceForm.value);
       console.log('Form submitted successfully. Navigating to /profil...');
       this.router.navigate(['/profil']);
+      
     } else {
       console.error('Form is invalid', this.annonceForm.errors);
     }
