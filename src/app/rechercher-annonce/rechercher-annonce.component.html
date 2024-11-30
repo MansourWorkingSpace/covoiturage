@@ -7,42 +7,54 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let user of users">
-        <ng-container *ngIf="user.annonces?.length > 0">
+        <ng-container *ngIf="user.annonces?.length > 0 && user!==users[current_user]">
           <tr *ngFor="let annonce of user.annonces">
-            <td>
-              <div class="annonce-card">
-                <!-- Profil Section -->
-                <div class="profil-section">
-                  <img
-                    src="/assets/profil.png"
-                    alt="Photo de profil"
-                    class="profile-picture"
-                  />
-                  <p class="name">{{ user.username }}</p>
+            <ng-container *ngIf="annonce.vehicule.places - 1 > 0">
+              <td>
+                <div class="annonce-card">
+                  <!-- Profile Section -->
+                  <div class="profile-section">
+                    <img
+                      src="/assets/profil.png"
+                      alt="Photo de profil"
+                      class="profile-picture"
+                    />
+                    <p class="name">{{ user.username }}</p>
+                    <p><b style="color: #10375c;">{{user.telephone}}</b></p>
+                  </div>
+  
+                  <!-- Details Section -->
+                  <div class="details-section">
+                    <h3>{{ annonce.lieuDepart }} - {{ annonce.lieuArrivee }}</h3>
+                    <p>
+                      <i class="fas fa-map-marker-alt"></i>
+                      <b>{{ annonce.lieuDepart }}</b> → <b>{{ annonce.lieuArrivee }}</b>
+                    </p>
+                    <p>
+                      <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
+                      <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
+                    </p>
+                    <p><b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
+                    <p *ngIf="annonce.allerRetour; else aller"><b>Aller-Retour</b></p>
+                    <ng-template #aller><p><b>Aller uniquement</b></p></ng-template>
+                    <p *ngIf="annonce.animauxAutorises; else nonAutorises"><b>Animaux Autorisés</b></p>
+                    <ng-template #nonAutorises><p><b>Animaux non Autorisés</b></p></ng-template>
+                  </div>
+                  <!-- Price Section -->
+                  <div class="price-section">
+                    <span class="price">{{ annonce.prixParPlace }} Dinars</span>
+                    <ng-container *ngIf="participant(annonce); else showParticipateButton">
+                      <b style="color: #10375c;">✔ Participé(e)</b>
+                    </ng-container>
+                    <ng-template #showParticipateButton>
+                      <button class="participer-btn" (click)="devenirParticipant(annonce)">Participer</button>
+                    </ng-template>
+                  </div>
+                  
                 </div>
-
-                <!-- Details Section -->
-                <div class="details-section">
-                  <h3>{{ annonce.lieuDepart }} - {{ annonce.lieuArrivee }}</h3>
-                  <p>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <b>{{ annonce.lieuDepart }}</b> → <b>{{ annonce.lieuArrivee }}</b>
-                  </p>
-                  <p>
-                    <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
-                    <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
-                  </p>
-                  <p *ngIf="annonce.allerRetour"><b>Aller-Retour</b></p>
-                  <p *ngIf="annonce.animauxAutorises"><b>Animaux Autorisés</b></p>
-                </div>
-
-                <!-- Price Section -->
-                <div class="price-section">
-                  <span class="price">{{ annonce.prixParPlace }} Dinars</span>
-                  <button class="participer-btn">Participer</button>
-                </div>
-              </div>
-            </td>
+              </td>
+            </ng-container>
+            
           </tr>
         </ng-container>
       </ng-container>

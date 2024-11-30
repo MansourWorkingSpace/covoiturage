@@ -43,7 +43,8 @@ export class PublierAnnonceComponent {
       this.selectedVehicle = null;
     }
   }
-  
+  annonce:any;
+  indexParticipants:number[]=[];
   constructor(private router: Router) {}
   OnSubmit() {
     if (!Array.isArray(SharedService.users[SharedService.current_user_id].annonces)) {
@@ -54,13 +55,16 @@ export class PublierAnnonceComponent {
       console.error('No vehicle selected!');
       return;
     }
-    
     if (this.annonceForm.valid) {
       this.annonceForm.patchValue({ vehicule: this.selectedVehicle });
-      SharedService.users[SharedService.current_user_id].annonces.push(this.annonceForm.value);
+      this.annonce=
+        {
+          ...this.annonceForm.value,
+          indexParticipants:this.indexParticipants,
+        }
+      SharedService.users[SharedService.current_user_id].annonces.push(this.annonce);
       console.log('Form submitted successfully. Navigating to /profil...');
       this.router.navigate(['/profil']);
-      
     } else {
       console.error('Form is invalid', this.annonceForm.errors);
     }

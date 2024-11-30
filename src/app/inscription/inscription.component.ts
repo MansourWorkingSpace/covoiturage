@@ -36,7 +36,7 @@ export class InscriptionComponent {
         adress: this.profileForm.value.adress,
         age: this.profileForm.value.age,
       });
-      SharedService.current_user_id=SharedService.nb_users;
+      SharedService.current_user_id=SharedService.users.length-1;
       SharedService.nb_users++;
       SharedService.connected = true;
       this.router.navigate(['/profil']);

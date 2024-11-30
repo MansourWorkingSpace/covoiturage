@@ -7,8 +7,16 @@ import { SharedService } from '../shared.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './rechercher-annonce.component.html',
-  styleUrl: './rechercher-annonce.component.css'
+  styleUrl: './rechercher-annonce.component.css',
 })
 export class RechercherAnnonceComponent {
-  users=SharedService.users;
+  users = SharedService.users;
+  current_user=SharedService.current_user_id;
+  devenirParticipant(annonce: any) {
+    annonce.indexParticipants.push(SharedService.current_user_id);
+    annonce.vehicule.places -= 1;
+  }
+  participant(annonce: any): boolean {
+    return annonce.indexParticipants.includes(SharedService.current_user_id);
+  }
 }

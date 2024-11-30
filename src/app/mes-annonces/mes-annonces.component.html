@@ -1,0 +1,50 @@
+
+<ng-container *ngIf="annonces?.length > 0">
+    <div class="page-container">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="3">Les annonces de {{user.username}}</th>
+            </tr>
+          </thead>
+          <tbody>
+              
+                <tr *ngFor="let annonce of annonces">
+                  <td>
+                    <div class="annonce-card">
+                      <!-- Profile Section -->
+                      <div class="profile-section">
+                        <img
+                          src="/assets/profil.png"
+                          alt="Photo de profil"
+                          class="profile-picture"
+                        />
+                      </div>
+      
+                      <!-- Details Section -->
+                      <div class="details-section">
+                        <h3>{{ annonce.lieuDepart }} - {{ annonce.lieuArrivee }}</h3>
+                        <p>
+                          <i class="fas fa-map-marker-alt"></i>
+                          <b>{{ annonce.lieuDepart }}</b> → <b>{{ annonce.lieuArrivee }}</b>
+                        </p>
+                        <p>
+                          <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
+                          <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
+                        </p>
+                        <p><b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
+                        <p *ngIf="annonce.allerRetour"><b>Aller-Retour</b></p>
+                        <p *ngIf="annonce.animauxAutorises"><b>Animaux Autorisés</b></p>
+                      </div>
+                      <!-- Price Section -->
+                      <div class="price-section">
+                        <span class="price">{{ annonce.prixParPlace }} Dinars</span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+      
+</ng-container>

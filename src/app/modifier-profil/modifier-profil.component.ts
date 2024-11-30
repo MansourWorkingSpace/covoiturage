@@ -41,7 +41,6 @@ export class ModifierProfilComponent {
   OnSubmit() {
     if (this.profileForm.valid) {
       SharedService.users[SharedService.current_user_id]={
-        id: SharedService.nb_users,
         username: this.profileForm.value.username,
         name: this.profileForm.value.name,
         telephone: this.profileForm.value.telephone,

@@ -1,0 +1,126 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Bleu clair */
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #10375c;
+    padding-bottom: 20px;
+  }
+  
+  .annonce-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row; /* Layout as a row */
+    background-color: #f4f6ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px auto;
+    width: 50%; /* Limit width for better structure */
+    gap: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .annonce-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 15%; /* Fixed width for profile section */
+  }
+  
+  .profile-picture {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #10375c;
+  }
+  
+  .details-section {
+    flex: 2; /* Takes more space */
+    color: #10375c;
+  }
+  
+  .details-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details-section p {
+    font-size: 14px;
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+  
+  .price-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 150px;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .price-section .price {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #eb8317;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100px;
+  }
+  
+  .participer-btn {
+    width: 100px;
+    font-weight: bold;
+    background-color: #10375c;
+    color: #f4f6ff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .participer-btn:hover {
+    background-color: #eb8317; /* Jaune */
+    color: #10375c;
+  }
+  
