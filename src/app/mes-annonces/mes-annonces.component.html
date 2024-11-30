@@ -39,6 +39,12 @@
                       <!-- Price Section -->
                       <div class="price-section">
                         <span class="price">{{ annonce.prixParPlace }} Dinars</span>
+                        <a (click)="afficher()">Afficher details participant(s)</a>
+                        @if(affiche){
+                            <p *ngFor="let i of annonce.indexParticipants">
+                                <b class="participant-info">{{ users[i].username }} - {{ users[i].telephone }}</b>
+                            </p>                        
+                        }
                       </div>
                     </div>
                   </td>

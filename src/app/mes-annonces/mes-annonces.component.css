@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white; /* Bleu clair */
+    background-color: white;
     padding: 20px;
     min-height: 100vh;
   }
@@ -17,7 +17,7 @@
     text-align: center;
     font-size: 28px;
     font-weight: bold;
-    color: #10375c;
+    color: #10375c; /* Dark blue */
     padding-bottom: 20px;
   }
   
@@ -25,13 +25,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row; /* Layout as a row */
+    flex-direction: row;
     background-color: #f4f6ff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px auto;
-    width: 50%; /* Limit width for better structure */
+    width: 50%;
     gap: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
   }
@@ -46,7 +46,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 15%; /* Fixed width for profile section */
+    width: 15%;
   }
   
   .profile-picture {
@@ -57,15 +57,9 @@
     margin-bottom: 10px;
   }
   
-  .name {
-    font-size: 16px;
-    font-weight: bold;
-    color: #10375c;
-  }
-  
   .details-section {
-    flex: 2; /* Takes more space */
-    color: #10375c;
+    flex: 2;
+    color: #10375c; /* Dark blue */
   }
   
   .details-section h3 {
@@ -103,24 +97,25 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    width: 100px;
+    width: fit-content;
   }
   
-  .participer-btn {
-    width: 100px;
+  .price-section a {
     font-weight: bold;
-    background-color: #10375c;
-    color: #f4f6ff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    color: #10375c; /* Dark blue */
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    transition: color 0.3s;
   }
   
-  .participer-btn:hover {
-    background-color: #eb8317; /* Jaune */
-    color: #10375c;
+  .price-section a:hover {
+    color: #eb8317; /* Yellow on hover */
+  }
+  
+  .participant-info {
+    color: #10375c; /* Dark blue */
+    font-size: 14px;
+    margin: 5px 0;
   }
   

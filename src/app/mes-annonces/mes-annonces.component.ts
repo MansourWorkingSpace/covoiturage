@@ -12,4 +12,9 @@ import { SharedService } from '../shared.service';
 export class MesAnnoncesComponent {
   annonces = SharedService.users[SharedService.current_user_id].annonces;
   user = SharedService.users[SharedService.current_user_id];
+  users = SharedService.users;
+  affiche=false;
+  afficher(){
+    this.affiche=true;
+  }
 }

@@ -37,7 +37,7 @@ a img{
 .dropdown-item {
   background-color: #10375c; /* Default background */
   color: #F4F6FF;
-  width: 120px; /* Optional: Change text color */
+  width: fit-content; /* Optional: Change text color */
 }
 
 /* Optional: Reset the color when not hovered */
