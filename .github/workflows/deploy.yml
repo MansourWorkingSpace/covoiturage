@@ -10,22 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository
+      # Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Node.js and install dependencies
+      # Set up Node.js version 18.x or higher
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # or your desired Node version
+          node-version: '18'  # Ensure you're using at least Node.js 18
 
+      # Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Build the Angular app
       - name: Build the Angular app
-        run: ng build --output-path=dist --base-href /covoiturage/
-      # Upload build files as artifact
+        run: npx ng build --prod --output-path=dist --base-href /covoiturage/
+
+      # Upload build files as an artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -37,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository
+      # Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
