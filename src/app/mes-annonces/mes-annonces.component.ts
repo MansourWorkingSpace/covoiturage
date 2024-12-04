@@ -10,14 +10,17 @@ import { SharedService } from '../shared.service';
   styleUrl: './mes-annonces.component.css',
 })
 export class MesAnnoncesComponent {
-  annonces = SharedService.users[SharedService.current_user_id].annonces;
+  annonces = SharedService.users[SharedService.current_user_id].annonces.map((annonce: any) => ({
+    ...annonce,
+    affiche: false, // Add a local property to each announcement
+  }));
   user = SharedService.users[SharedService.current_user_id];
   users = SharedService.users;
+
   isFutureDate(dateDepart: string): boolean {
     return new Date(dateDepart) > new Date();
   }
-  affiche=false;
-  afficher(){
-    this.affiche=true;
+  afficher(annonce: any) {
+    annonce.affiche = !annonce.affiche; // Toggle display state for this specific announcement
   }
 }

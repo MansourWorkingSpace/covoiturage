@@ -22,12 +22,15 @@
             Accueil
           </a>
         </li>
-        <li class="nav-item">
-          <button class="nav-link active" routerLink="/rechercher" [disabled]="!status">Rechercher Annonces</button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link active" routerLink="/publier" [disabled]="!status">Publier Annonces</button>
-        </li>
+        @if (status) {
+          <li class="nav-item">
+            <button class="nav-link active" routerLink="/rechercher" [disabled]="!status">Rechercher Annonces</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link active" routerLink="/publier" [disabled]="!status">Publier Annonces</button>
+          </li>
+        }
+        
       </ul>
 
       @if(!status){
