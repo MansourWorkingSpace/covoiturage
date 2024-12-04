@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,10 +30,12 @@ jobs:
         run: npm install -g @angular/cli
 
       - name: Build Angular app
-        run: ng build --output-path=docs --base-href /covoiturage/
+        run: ng build --output-path=dist --base-href /covoiturage/
+
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          branch: gh-pages
-          folder: docs
