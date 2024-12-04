@@ -1,0 +1,14 @@
+{
+  "routes": [
+    "/ajouter_vehicule",
+    "/bg_image",
+    "/connexion",
+    "/editer_vehicules",
+    "/inscription",
+    "/mesAnnonces",
+    "/modifier_profil",
+    "/profil",
+    "/publier",
+    "/rechercher"
+  ]
+}
