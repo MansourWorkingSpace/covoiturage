@@ -9,6 +9,7 @@ import { ModifierProfilComponent } from './modifier-profil/modifier-profil.compo
 import { AjouterVehiculeComponent } from './ajouter-vehicule/ajouter-vehicule.component';
 import { EditerVehiculesComponent } from './editer-vehicules/editer-vehicules.component';
 import { MesAnnoncesComponent } from './mes-annonces/mes-annonces.component';
+import { AnnonceParticipeComponent } from './annonce-participe/annonce-participe.component';
 
 export const routes: Routes = [
     {path : 'bg_image' , component : BgImageComponent},
@@ -22,4 +23,5 @@ export const routes: Routes = [
     {path: 'ajouter_vehicule', component:AjouterVehiculeComponent},
     {path: 'editer_vehicules',component:EditerVehiculesComponent},
     {path:'mesAnnonces',component:MesAnnoncesComponent},
+    {path:'annonceParticipe',component:AnnonceParticipeComponent}
 ];

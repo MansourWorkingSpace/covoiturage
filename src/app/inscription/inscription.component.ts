@@ -23,7 +23,7 @@ export class InscriptionComponent {
   });
 
   constructor( private router: Router) {}
-
+  annonces:any[]=[]
   OnSubmit() {
     if (this.profileForm.valid) {
       SharedService.users.push({
@@ -35,6 +35,7 @@ export class InscriptionComponent {
         password: this.profileForm.value.password,
         adress: this.profileForm.value.adress,
         age: this.profileForm.value.age,
+        annonces :this.annonces,
       });
       SharedService.current_user_id=SharedService.users.length-1;
       SharedService.nb_users++;

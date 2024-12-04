@@ -1,0 +1,61 @@
+<ng-container *ngIf="annonces.length > 0">
+    <div class="page-container">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3">Les annonces dans lesquelles {{ user.username }} est participé(e)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let annonce of annonces">
+            <td *ngIf="isFutureDate(annonce.dateDepart)">
+              <div class="annonce-card">
+                <!-- Profile Section -->
+                <div class="profile-section">
+                  <img
+                    src="/assets/profil.png"
+                    alt="Photo de profil"
+                    class="profile-picture"
+                  />
+                  <p class="name"><b>{{ annonce.username }}</b></p>
+                  <p><b style="color: #10375c;">{{annonce.telephone}}</b></p>
+                </div>
+  
+                <!-- Details Section -->
+                <div class="details-section">
+                  <h3>{{ annonce.lieuDepart }} - {{ annonce.lieuArrivee }}</h3>
+                  <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <b>{{ annonce.lieuDepart }}</b> → <b>{{ annonce.lieuArrivee }}</b>
+                  </p>
+                  <p>
+                    <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
+                    <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
+                  </p>
+                  <p *ngIf="annonce.vehicule.places - 1 > 0; else Complet">
+                    <b>Places disponibles :</b> {{ annonce.vehicule.places - 1 }}
+                  </p>
+                  <ng-template #Complet><p><b>Complet</b></p></ng-template>
+                  <p *ngIf="annonce.allerRetour; else aller"><b>Aller-Retour</b></p>
+                  <ng-template #aller><p><b>Aller uniquement</b></p></ng-template>
+                  <p *ngIf="annonce.animauxAutorises; else nonAutorises"><b>Animaux Autorisés</b></p>
+                  <ng-template #nonAutorises><p><b>Animaux non Autorisés</b></p></ng-template>
+                </div>
+                <!-- Price Section -->
+                <div class="price-section">
+                  <span class="price">{{ annonce.prixParPlace }} Dinars</span>
+                  <a (click)="afficher(annonce)">Afficher details participant(s)</a>
+                  <div *ngIf="annonce.affiche">
+                    <p *ngFor="let i of annonce.indexParticipants">
+                      <b class="participant-info">{{ users[i].username }} - {{ users[i].telephone }}</b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+  
