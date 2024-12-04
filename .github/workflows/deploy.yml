@@ -11,32 +11,39 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 4: Install Angular CLI
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
+      # Step 5: Build the Angular app
       - name: Build Angular app
         run: ng build --output-path=dist --base-href /covoiturage/
 
+      # Step 6: Upload the build as an artifact
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v1
         with:
           path: dist
           name: github-pages
 
+      # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
