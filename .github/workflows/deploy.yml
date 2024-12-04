@@ -24,8 +24,7 @@ jobs:
         run: npm install
 
       - name: Build the Angular app
-        run: npm run build -- --prod --output-path=dist --base-href /covoiturage/
-
+        run: ng build --output-path=dist --base-href /covoiturage/
       # Upload build files as artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v3
