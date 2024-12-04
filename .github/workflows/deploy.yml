@@ -1,49 +1,49 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      - main  # or your default branch
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
+      # Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
+      # Set up Node.js and install dependencies
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '16'  # or your desired Node version
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Install Angular CLI
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
+      - name: Build the Angular app
+        run: npm run build -- --prod --output-path=dist --base-href /covoiturage/
 
-      # Step 5: Build the Angular app
-      - name: Build Angular app
-        run: ng build --output-path=dist --base-href /covoiturage/
-
-      # Step 6: Upload the build as an artifact
-      - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v1
+      # Upload build files as artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          path: dist
           name: github-pages
+          path: ./dist/**/*  # Upload the entire dist/ folder
 
-      # Step 7: Deploy to GitHub Pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
