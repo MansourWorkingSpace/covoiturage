@@ -34,7 +34,9 @@
                       <b>Départ :</b> {{ annonce.dateDepart }} à {{ annonce.heureDepart }}<br />
                       <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
                     </p>
-                    <p><b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
+                    <p>
+                      <b>{{annonce.vehicule.marque}}</b><br>
+                      <b>Places disponibles :</b> {{annonce.vehicule.places - 1}}</p>
                     <p *ngIf="annonce.allerRetour; else aller"><b>Aller-Retour</b></p>
                     <ng-template #aller><p><b>Aller uniquement</b></p></ng-template>
                     <p *ngIf="annonce.animauxAutorises; else nonAutorises"><b>Animaux Autorisés</b></p>

@@ -12,7 +12,7 @@ import { SharedService } from '../shared.service';
 export class MesAnnoncesComponent {
   annonces = SharedService.users[SharedService.current_user_id].annonces.map((annonce: any) => ({
     ...annonce,
-    affiche: false, // Add a local property to each announcement
+    affiche: false, 
   }));
   user = SharedService.users[SharedService.current_user_id];
   users = SharedService.users;
@@ -21,6 +21,6 @@ export class MesAnnoncesComponent {
     return new Date(dateDepart) > new Date();
   }
   afficher(annonce: any) {
-    annonce.affiche = !annonce.affiche; // Toggle display state for this specific announcement
+    annonce.affiche = !annonce.affiche; 
   }
 }

@@ -31,6 +31,7 @@
                   <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
                 </p>
                 <p *ngIf="annonce.vehicule.places - 1 > 0; else Complet">
+                  <b>{{annonce.vehicule.marque}}</b><br>
                   <b>Places disponibles :</b> {{ annonce.vehicule.places - 1 }}
                 </p>
                 <ng-template #Complet><p><b>Complet</b></p></ng-template>

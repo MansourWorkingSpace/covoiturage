@@ -14,7 +14,6 @@ export class AnnonceParticipeComponent {
   users = SharedService.users;
   current_user_id = SharedService.current_user_id;
 
-  // Corrected logic for getting participated annonces
   getParticipatedAnnonces() {
     let annonces: any[] = [];
     for (let i = 0; i < SharedService.users.length; i++) {
@@ -31,24 +30,23 @@ export class AnnonceParticipeComponent {
         }
       }
     }
-    console.log('Participated annonces:', annonces); // Log to check what we're getting
+    console.log('Participated annonces:', annonces); 
     return annonces;
   }
   
 
-  // Initialize annonces with the default state (no participants shown)
   annonces = this.getParticipatedAnnonces().map((annonce: any) => ({
     ...annonce,
-    affiche: false, // Default to not showing participants
+    affiche: false, 
   }));
 
-  // Check if the date is in the future
+
   isFutureDate(dateDepart: string): boolean {
     return new Date(dateDepart) > new Date();
   }
 
-  // Toggle the display of participants
+
   afficher(annonce: any) {
-    annonce.affiche = !annonce.affiche; // Toggle display state for this specific announcement
+    annonce.affiche = !annonce.affiche; 
   }
 }

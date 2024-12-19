@@ -22,25 +22,22 @@ export class ConnexionComponent {
   OnSubmit() {
     let found = false;
 
-    // Loop through SharedService.users to check credentials
     for (let i = 0; i < SharedService.users.length; i++) {
       const user = SharedService.users[i];
       if (
         this.profileForm.value.email === user.email &&
         this.profileForm.value.password === user.password
       ) {
-        SharedService.current_user_id = i; // Store the current user's ID
+        SharedService.current_user_id = i; 
         found = true;
         break;
       }
     }
 
     if (found) {
-      // If credentials are correct, navigate to the profile page
       SharedService.connected = true;
       this.router.navigate(['/profil']);
     } else {
-      // Show an error message if credentials are invalid
       alert('Email ou mot de passe incorrect.');
     }
   }

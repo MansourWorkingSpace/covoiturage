@@ -10,7 +10,6 @@
           <tr *ngFor="let annonce of annonces">
             <td *ngIf="isFutureDate(annonce.dateDepart)">
               <div class="annonce-card">
-                <!-- Profile Section -->
                 <div class="profile-section">
                   <img
                     src="/assets/profil.png"
@@ -21,7 +20,6 @@
                   <p><b style="color: #10375c;">{{annonce.telephone}}</b></p>
                 </div>
   
-                <!-- Details Section -->
                 <div class="details-section">
                   <h3>{{ annonce.lieuDepart }} - {{ annonce.lieuArrivee }}</h3>
                   <p>
@@ -33,6 +31,7 @@
                     <b>Arrivée :</b> {{ annonce.dateArrivee }} à {{ annonce.heureArrivee }}
                   </p>
                   <p *ngIf="annonce.vehicule.places - 1 > 0; else Complet">
+                    <b>{{annonce.vehicule.marque}}</b><br>
                     <b>Places disponibles :</b> {{ annonce.vehicule.places - 1 }}
                   </p>
                   <ng-template #Complet><p><b>Complet</b></p></ng-template>
