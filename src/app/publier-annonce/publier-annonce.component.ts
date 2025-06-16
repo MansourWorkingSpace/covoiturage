@@ -33,7 +33,6 @@ export class PublierAnnonceComponent {
     allerRetour: new FormControl(false),
     animauxAutorises: new FormControl(false),
   });
-
   voitures = SharedService.users[SharedService.current_user_id]?.voitures || [];
   selectedVehicle: any;
 
@@ -78,19 +77,11 @@ export class PublierAnnonceComponent {
     }
     if (this.annonceForm.valid) {
       this.annonce = {
-        description: this.annonceForm.value.description,
-        dateDepart: this.annonceForm.value.dateDepart,
-        heureDepart: this.annonceForm.value.heureDepart,
-        dateArrivee: this.annonceForm.value.dateArrivee,
-        heureArrivee: this.annonceForm.value.heureArrivee,
-        lieuDepart: this.annonceForm.value.lieuDepart,
-        lieuArrivee: this.annonceForm.value.lieuArrivee,
-        prixParPlace: this.annonceForm.value.prixParPlace,
-        allerRetour: this.annonceForm.value.allerRetour,
-        animauxAutorises: this.annonceForm.value.animauxAutorises,
-        vehicule: this.selectedVehicle,
-        indexParticipants: this.indexParticipants,
+          ...this.annonceForm.value,
+          
       };
+      this.annonce.vehicule=this.selectedVehicle;
+      this.annonce.indexParticipants=this.indexParticipants,
       SharedService.users[SharedService.current_user_id].annonces.push(
         this.annonce
       );
