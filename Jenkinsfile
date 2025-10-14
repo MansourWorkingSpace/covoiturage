@@ -24,17 +24,33 @@ pipeline {
                     } else {
                         bat 'node --version & npm --version'
                     }
+                        options {
+                            // Évite le checkout implicite avant les stages pour que notre env s'applique
+                            skipDefaultCheckout(true)
+                            // Réduire les flakiness
+                            retry(1)
+                            timeout(time: 30, unit: 'MINUTES')
+                        }
+
                 }
             }
         }
         
         stage('Install Dependencies') {
+                        environment {
+                            // Forcer Git à utiliser HTTP/1.1 pour éviter certains problèmes HTTP/2 (curl 92)
+                            GIT_HTTP_VERSION = 'HTTP/1.1'
+                        }
+
             steps {
                 echo 'Installation des dépendances npm...'
                 script {
-                    if (isUnix()) {
-                        sh 'npm ci' // Plus rapide et reproductible que npm install
-                    } else {
+                                    echo 'Récupération du code source via configuration du job (checkout scm)...'
+                                    script {
+                                        retry(3) {
+                                            checkout scm
+                                        }
+                                    }
                         bat 'npm ci'
                     }
                 }
@@ -114,24 +130,11 @@ pipeline {
     }
     
     post {
-        always {
-            echo 'Nettoyage de l\'espace de travail...'
-            // Nettoyer les node_modules pour économiser l'espace
-            script {
-                if (isUnix()) {
-                    sh 'rm -rf node_modules || true'
-                } else {
-                    bat 'powershell -NoProfile -Command "Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue"'
-                }
-            }
-        }
         success {
             echo 'Pipeline exécuté avec succès ! 🎉'
-            // Optionnel: notification de succès
         }
         failure {
             echo 'Le pipeline a échoué ! ❌'
-            // Optionnel: notification d'échec
         }
         unstable {
             echo 'Le pipeline est instable ⚠️'
