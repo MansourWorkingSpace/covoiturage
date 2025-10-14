@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    // Utilise l'installation NodeJS déclarée dans Jenkins (Manage Jenkins > Global Tool Configuration)
-    tools {
-        nodejs 'nodejs' // Assurez-vous qu'une installation nommée "NodeJS_18" existe côté Jenkins
-    }
-
-    stages {
-        stage('Checkout') {
     options {
         skipDefaultCheckout(true)
         retry(1)
@@ -17,10 +10,21 @@ pipeline {
     environment {
         GIT_HTTP_VERSION = 'HTTP/1.1'
     }
-            steps {
-                echo 'Récupération du code source depuis le dépôt Git...'
-                // Récupère le code source depuis le dépôt Git
+
+    // Utilise l'installation NodeJS déclarée dans Jenkins (Manage Jenkins > Global Tool Configuration)
+    tools {
         nodejs 'NodeJS_18' // Assurez-vous qu'une installation nommée "NodeJS_18" existe côté Jenkins
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Récupération du code source via configuration du job (checkout scm)...'
+                script {
+                    retry(3) {
+                        checkout scm
+                    }
+                }
             }
         }
         
@@ -33,8 +37,6 @@ pipeline {
                     } else {
                         bat 'node --version & npm --version'
                     }
-                }
-
                 }
             }
         }
