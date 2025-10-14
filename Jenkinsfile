@@ -26,43 +26,26 @@ pipeline {
         
         stage('Setup') {
             steps {
-                echo 'Récupération du code source via configuration du job (checkout scm)...'
+                echo 'Vérification des versions Node.js et npm...'
                 script {
-                    retry(3) {
-                        checkout scm
-                    }
-                }
+                    if (isUnix()) {
                         sh 'node --version && npm --version'
                     } else {
                         bat 'node --version & npm --version'
                     }
-                        options {
-                            // Évite le checkout implicite avant les stages pour que notre env s'applique
-                            skipDefaultCheckout(true)
-                            // Réduire les flakiness
-                            retry(1)
-                            timeout(time: 30, unit: 'MINUTES')
-                        }
+                }
 
                 }
             }
         }
         
         stage('Install Dependencies') {
-                        environment {
-                            // Forcer Git à utiliser HTTP/1.1 pour éviter certains problèmes HTTP/2 (curl 92)
-                            GIT_HTTP_VERSION = 'HTTP/1.1'
-                        }
-
             steps {
                 echo 'Installation des dépendances npm...'
                 script {
-                                    echo 'Récupération du code source via configuration du job (checkout scm)...'
-                                    script {
-                                        retry(3) {
-                                            checkout scm
-                                        }
-                                    }
+                    if (isUnix()) {
+                        sh 'npm ci'
+                    } else {
                         bat 'npm ci'
                     }
                 }
