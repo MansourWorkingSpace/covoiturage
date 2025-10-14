@@ -13,7 +13,7 @@ pipeline {
 
     // Utilise l'installation NodeJS déclarée dans Jenkins (Manage Jenkins > Global Tool Configuration)
     tools {
-        nodejs 'NodeJS_18' // Assurez-vous qu'une installation nommée "NodeJS_18" existe côté Jenkins
+        nodejs 'nodejs' // Assurez-vous qu'une installation nommée "nodejs" existe côté Jenkins
     }
 
     stages {
