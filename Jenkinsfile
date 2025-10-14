@@ -8,18 +8,30 @@ pipeline {
 
     stages {
         stage('Checkout') {
+    options {
+        skipDefaultCheckout(true)
+        retry(1)
+        timeout(time: 30, unit: 'MINUTES')
+    }
+
+    environment {
+        GIT_HTTP_VERSION = 'HTTP/1.1'
+    }
             steps {
                 echo 'Récupération du code source depuis le dépôt Git...'
                 // Récupère le code source depuis le dépôt Git
-                git branch: 'main', url: 'https://github.com/MansourWorkingSpace/covoiturage.git'
+        nodejs 'NodeJS_18' // Assurez-vous qu'une installation nommée "NodeJS_18" existe côté Jenkins
             }
         }
         
         stage('Setup') {
             steps {
-                echo 'Vérification des versions Node.js et npm...'
+                echo 'Récupération du code source via configuration du job (checkout scm)...'
                 script {
-                    if (isUnix()) {
+                    retry(3) {
+                        checkout scm
+                    }
+                }
                         sh 'node --version && npm --version'
                     } else {
                         bat 'node --version & npm --version'
